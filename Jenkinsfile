@@ -1,20 +1,10 @@
 pipeline {
-    agent { any }
+    agent any
 
     stages {
-        stage('Сборка') {
+        stage('Hello') {
             steps {
-                echo 'Выполняем команды для сборки'
-            }
-        }
-        stage('Тестирование') {
-            steps {
-                echo 'Тестируем нашу сборку'
-            }
-        }
-        stage('Развертывание') {
-            steps {
-                echo 'Переносим код в рабочую среду или создаем артефакт'
+                echo 'Hello World'
             }
         }
     }
