@@ -4,7 +4,15 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                cmd.exe 
+                
+                echo 'Hello World'
+            }
+            steps {script{
+                def String text = "julia ma live"
+                print text
+                text = 5
+                print text
+                
                 echo 'Hello World'
             }
         }
