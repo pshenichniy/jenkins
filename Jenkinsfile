@@ -15,7 +15,7 @@ pipeline {
         stage('stage2') {
             steps {script{
                 def username = 'Jenkins'
-                echo 'Hello Mr. ${username}'
+                echo "Hello Mr. ${username}"
                 echo "I said, Hello Mr. ${username}"
                 def String text = "julia ma live"
                 print text
