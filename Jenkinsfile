@@ -12,7 +12,7 @@ pipeline {
                 print text
                 text = 5
                 print text
-                
+            }
                 echo 'Hello World'
             }
         }
