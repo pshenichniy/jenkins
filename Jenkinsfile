@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
+                cmd dir
                 echo 'Hello World'
             }
         }
