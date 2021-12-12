@@ -1,17 +1,26 @@
 pipeline {
-    agent any
+    agent {label "sarter"}
 
     stages {
-        stage('Hello') {
-            steps {
-                
-                echo 'Hello World'
-            }
+        stage('stage1') {
             steps {script{
                 def String text = "julia ma live"
                 print text
                 text = 5
                 print text
+                
+                echo 'Hello World'
             }}
         }
-    }}
+        stage('stage2') {
+            steps {script{
+                def String text = "julia ma live"
+                print text
+                text = 5
+                print text
+                
+                echo 'Hello World'
+            
+            }}
+        }
+    }
