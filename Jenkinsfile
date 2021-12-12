@@ -1,12 +1,7 @@
 pipeline {
-    agent { docker { image 'python:latest' } }
+    agent { any }
 
     stages {
-        stage('Подготовка') {
-            steps {
-                sh "python --version"
-            }
-        }
         stage('Сборка') {
             steps {
                 echo 'Выполняем команды для сборки'
