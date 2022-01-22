@@ -3,19 +3,20 @@ pipeline {
     parameters {
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
     }
-    stage('someStage') {
-        steps {
-            script {
-                try {
-                    build job: 'system-check-flow'
-                } catch (err) {
-                    echo err
+
+        stages {
+            stage('someStage') {
+                steps {
+                    script {
+                        try {
+                            build job: 'system-check-flow'
+                        } catch (err) {
+                            echo err
+                        }
+                    }
+                    echo currentBuild.result
                 }
             }
-            echo currentBuild.result
-        }
-    }
-        stages {
             stage('Example') {
                 steps {
                     echo "${params.Greeting} World!"
