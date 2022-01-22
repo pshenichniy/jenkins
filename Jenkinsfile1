@@ -9,5 +9,12 @@ pipeline {
                 echo "${params.Greeting} World!"
             }
         }
+        stage('Install OpenVino'){
+        
+        
+        
+        
+        }
     }
+    
 }
