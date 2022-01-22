@@ -17,18 +17,18 @@ pipeline {
             }
             stage('Сборка') {
                 steps {
-                    echo 'Выполняем команды для сборки'
+                    echo 'make bild'
                 }
             }
 
-            stage('Тестирование') {
+            stage('Testing') {
                 steps {
-                    echo 'Тестируем нашу сборку'
+                    echo 'testing as bild'
                 }
             }
-            stage('Развертывание') {
+            stage('developing adn starting') {
                 steps {
-                    echo 'Переносим код в рабочую среду или создаем артефакт'
+                    echo 'make artrfacts'
 
 
                 }
@@ -42,29 +42,29 @@ pipeline {
         }
     }
     }
-    class Windows {
-        static final Map SUPPORTED_DEVICES = [
-                'ADL': [deviceType: 'PUX', label: 'adl']
-        ]
-
-        static void runWindows10(script) {
-            def params = script.params
-            def host = ''
-            def deviceProps = SUPPORTED_DEVICES[params.target_device]
-            def jobTimeout = params.job_timeout.toInteger() * 60
-            def labels = params.specific_lables ? "Windows10 && ${deviceProps.label} && ${params.specific_lables}" : "windows10 && ${deviceProps.label}"
-            script.job_simple url: labels, maxtime: jobTimeout, body: {
-                try {
-                    host = script.env.NODE_NAME
-                    script.stage('Checkout')
-                            {
-                                println("test checout")
-                            }
-                }
-                finally {
-
-                }
-            }
-
-        }
-    }
+//    class Windows {
+//        static final Map SUPPORTED_DEVICES = [
+//                'ADL': [deviceType: 'PUX', label: 'adl']
+//        ]
+//
+//        static void runWindows10(script) {
+//            def params = script.params
+//            def host = ''
+//            def deviceProps = SUPPORTED_DEVICES[params.target_device]
+//            def jobTimeout = params.job_timeout.toInteger() * 60
+//            def labels = params.specific_lables ? "Windows10 && ${deviceProps.label} && ${params.specific_lables}" : "windows10 && ${deviceProps.label}"
+//            script.job_simple url: labels, maxtime: jobTimeout, body: {
+//                try {
+//                    host = script.env.NODE_NAME
+//                    script.stage('Checkout')
+//                            {
+//                                println("test checout")
+//                            }
+//                }
+//                finally {
+//
+//                }
+//            }
+//
+//        }
+//    }
