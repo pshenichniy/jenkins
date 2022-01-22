@@ -36,9 +36,13 @@ pipeline {
     }
 }
 class Windows {
+    static final Map SUPPORTED_DEVICES = [
+            'ADL': [deviceType: 'PUX',label: 'adl']
+    ]
     static void  runWindows10(script) {
         def params = script.params
         def host  = ''
+        def deviceProps = SUPPORTED_DEVICES[params.target_device]
         def jobTimeout = params.job_timeout.toInteger() * 60
         def labels = params.specific_lables ? "Windows10 && ${deviceProps.label} && ${params.specific_lables}" : "windows10 && ${deviceProps.label}"
         script.job_simple url: labels, maxtime: jobTimeout, body: {
