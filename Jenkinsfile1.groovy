@@ -13,7 +13,7 @@ pipeline {
             stage('Install OpenVino') {
                 steps {
                     echo 'Install open Vino'
-                    cmd "python --version"
+                    run(cmd,'python --version')
                 }
             }
             stage('Сборка') {
