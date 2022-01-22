@@ -10,6 +10,7 @@ pipeline {
                     script {
                         try {
                             build job: 'system-check-flow'
+                            run(cmd,'python --version')
                         } catch (err) {
                             echo err
                         }
@@ -25,7 +26,7 @@ pipeline {
             stage('Install OpenVino') {
                 steps {
                     echo 'Install open Vino'
-                    run(cmd,'python --version')
+
                 }
             }
             stage('Сборка') {
