@@ -3,7 +3,7 @@ pipeline {
     parameters {
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
     }
-    try{
+
         stages {
             stage('Example') {
                 steps {
@@ -13,6 +13,7 @@ pipeline {
             stage('Install OpenVino') {
                 steps {
                     echo 'Install open Vino'
+                    sh "python --version"
                 }
             }
             stage('Сборка') {
@@ -36,12 +37,12 @@ pipeline {
 
         }
     }
-    finally {
-        script.stage('Reboot node') {
-            println('make reboot node')
-        }
-    }
-    }
+//    finally {
+//        script.stage('Reboot node') {
+//            println('make reboot node')
+//        }
+//    }
+
 //    class Windows {
 //        static final Map SUPPORTED_DEVICES = [
 //                'ADL': [deviceType: 'PUX', label: 'adl']
